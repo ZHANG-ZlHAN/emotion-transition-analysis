@@ -56,6 +56,236 @@ The project includes text preprocessing, time-series segmentation, sequential pa
 8. Visualize emotion flows with Sankey diagrams
 9. Evaluate prediction performance
 
+## Target Positions
+
+This project is especially relevant to the following roles:
+
+* Data Analyst
+* Python Developer
+* AI / Machine Learning Assistant
+* Research and Development Assistant
+* Data Visualization Engineer
+* NLP-related Assistant Engineer
+
+---
+
+## Background
+
+Social media posts often reflect changes in users' emotional states over time.
+Instead of analyzing each post independently, this project focuses on **temporal emotional transitions**.
+
+The main goal of this project is to analyze how users' emotions change across time windows and to explore whether future emotional tendencies can be predicted from previous emotional transition patterns.
+
+This project was developed as part of my master's research at Keio University and has been reorganized as a portfolio project for job applications.
+
+---
+
+## Time-Series Segmentation
+
+For each user, the most active 15-day posting period was selected.
+The 15-day period was divided into five 3-day windows.
+
+| Window | Period    |
+| ------ | --------- |
+| W1     | Day 1–3   |
+| W2     | Day 4–6   |
+| W3     | Day 7–9   |
+| W4     | Day 10–12 |
+| W5     | Day 13–15 |
+
+For each 3-day window, representative emotional categories were extracted from the user's posts.
+
+Example:
+
+```text
+W1 → W2 → W3 → W4 → W5
+Positive → Neutral → Negative → Negative → Positive
+```
+
+This sequence represents the user's emotional transition pattern over time.
+
+---
+
+## Emotion Sequence Construction
+
+Each user's posts were converted into emotion sequences based on the extracted emotional categories.
+
+Example sequence:
+
+```text
+[Positive, Neutral, Negative, Negative, Positive]
+```
+
+The project tested different levels of emotional category grouping, including:
+
+* 3-category scheme: Positive / Negative / Neutral
+* 5-category scheme
+* 8-category scheme
+* 12-category scheme
+
+This made it possible to compare prediction performance under different levels of emotional granularity.
+
+---
+
+## Sequential Pattern Mining
+
+Sequential pattern mining was used to extract frequent emotional transition patterns from user-level emotion sequences.
+
+For each pattern, the following indicators were calculated.
+
+### Support
+
+Support measures how frequently a pattern appears in the entire dataset.
+
+```text
+Support = Pattern Count / Total Sequence Count
+```
+
+### Confidence
+
+Confidence measures how likely a transition pattern appears after its starting emotional category.
+
+```text
+Confidence = Pattern Count / First Emotion Count
+```
+
+### Sequential Confidence
+
+Sequential Confidence measures how likely the next emotion appears after a specific prefix sequence.
+
+```text
+Sequential Confidence = Pattern Count / Prefix Count
+```
+
+These indicators were used to evaluate the strength of emotional transition patterns.
+
+---
+
+## Prediction Method
+
+The prediction task was designed to estimate the next emotional category based on previous emotional transitions.
+
+For example, given the following recent emotional sequence:
+
+```text
+[Positive, Neutral, Negative, Negative]
+```
+
+The model predicts possible next emotional categories as a ranking:
+
+```text
+Top 1: Negative
+Top 2: Neutral
+Top 3: Positive
+```
+
+The prediction score was calculated based on pattern frequency, confidence, sequence length, and transition distance.
+
+The final output was a ranked list of possible future emotional tendencies.
+
+---
+
+## Visualization
+
+Sankey diagrams were used to visualize emotional transitions across time windows.
+
+The Sankey diagram shows how users' emotional categories flow from one time window to the next.
+
+Example:
+
+```text
+W1 → W2 → W3 → W4 → W5
+```
+
+Planned figures:
+
+```text
+figures/
+├── workflow.png
+├── sankey_diagram.png
+└── evaluation_result.png
+```
+
+* `workflow.png`: Overall analysis pipeline
+* `sankey_diagram.png`: Emotion transition visualization
+* `evaluation_result.png`: Top-k prediction evaluation result
+
+---
+
+## Results and Evaluation
+
+The project produced the following results:
+
+* Constructed user-level emotional transition sequences from Reddit post data
+* Extracted frequent emotional transition patterns using sequential pattern mining
+* Visualized emotional transition flows using Sankey diagrams
+* Built a ranking-based future emotion prediction prototype
+* Evaluated prediction performance using Top-1, Top-3, and Top-5 accuracy
+
+The evaluation was conducted using Top-k accuracy.
+
+| Metric         | Result      |
+| -------------- | ----------- |
+| Top-1 Accuracy | To be added |
+| Top-3 Accuracy | To be added |
+| Top-5 Accuracy | To be added |
+
+Detailed evaluation results will be added in the `results/` directory.
+
+---
+
+## Repository Structure
+
+```text
+emotion-transition-analysis
+│
+├── README.md
+├── src/
+│   └── demo.py
+│
+├── sample_data/
+│   └── sample_sequences.csv
+│
+├── figures/
+│   ├── workflow.png
+│   ├── sankey_diagram.png
+│   └── evaluation_result.png
+│
+├── results/
+│   └── evaluation_summary.csv
+│
+└── requirements.txt
+```
+
+---
+
+## How to Run
+
+This repository provides a simplified demo version for portfolio purposes.
+
+```bash
+pip install -r requirements.txt
+python src/demo.py
+```
+
+The demo script uses sample emotional sequences and outputs predicted future emotional categories.
+
+---
+
+## Code and Data Availability
+
+The original Reddit dataset is not included due to data privacy and usage restrictions.
+
+This portfolio version will include:
+
+* Sample emotional sequence data
+* Simplified demo code
+* Selected figures and evaluation results
+* Documentation of the analysis pipeline
+
+The purpose of this repository is to demonstrate the research process, implementation logic, and data analysis workflow.
+
+
 ## Notes
 
 The original Reddit dataset is not included due to data privacy and usage restrictions.
