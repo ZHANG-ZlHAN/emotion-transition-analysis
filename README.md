@@ -264,6 +264,7 @@ emotion-transition-analysis/
 ├── requirements.txt
 ├── src/
 │   ├── feature_extraction_demo.py
+│   ├── pattern_mining_demo.py
 │   └── demo.py
 ├── sample_data/
 │   ├── sample_posts.csv
@@ -274,6 +275,7 @@ emotion-transition-analysis/
 │   └── prediction_workflow.png
 └── results/
     ├── extracted_window_features_demo.csv
+    ├── generated_patterns_demo.csv
     ├── demo_output.txt
     └── evaluation_summary.csv
 ```
@@ -282,7 +284,7 @@ emotion-transition-analysis/
 
 ## How to Run
 
-This repository provides two simplified demos based on the research workflow.
+This repository provides three simplified demos based on the research workflow.
 
 ### Install Dependencies
 
@@ -310,7 +312,27 @@ Output:
 results/extracted_window_features_demo.csv
 ```
 
-### 2. Prediction Demo
+### 2. Pattern Mining Demo
+
+This demo generates full five-window sequential patterns from window-level emotional features.
+
+```bash
+python src/pattern_mining_demo.py
+```
+
+Input:
+
+```text
+sample_data/sample_window_features.csv
+```
+
+Output:
+
+```text
+results/generated_patterns_demo.csv
+```
+
+### 3. Prediction Demo
 
 This demo predicts the next emotional state from a prepared sequential pattern table.
 
