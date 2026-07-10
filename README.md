@@ -1,187 +1,207 @@
 # Social Media Emotion Transition Analysis and Prediction
 
+This repository is a portfolio version of my master's research project:
+
+**Exploring Emotional Transitions on Social Media Through Sequential Pattern Mining**
+
+The project analyzes emotional transitions in Reddit user posts and predicts future emotional states using sequential pattern mining and an interpretable Pattern Intensity Set (PIS)-based prediction method.
+
+---
+
 ## 日本語概要
 
-本プロジェクトは、Redditのユーザー投稿データを対象に、テキスト感情分類、時系列分割、感情遷移パターンの抽出を行い、過去の感情変化から将来の感情傾向を予測するデータ分析プロジェクトです。
+本プロジェクトは、修士研究「SNS上における感情遷移の分析と予測」をポートフォリオ向けに整理したものです。
 
-大学院研究として実施した内容を、ポートフォリオ向けに整理したものです。
+Reddit の投稿データを用いて、ユーザーの感情状態を時系列で分析し、Sequential Pattern Mining と Pattern Intensity Set (PIS) に基づく手法により、将来の感情カテゴリを予測します。
+
+本リポジトリでは、元研究の全データ処理パイプラインを完全公開するのではなく、研究の主要な流れを理解できるように、サンプルデータと簡略化したデモコードを提供しています。
+
+---
 
 ## Overview
 
-This project analyzes Reddit user post data to identify emotional transition patterns over time and predict future emotional tendencies based on previous emotional changes.
+Social media platforms contain large amounts of user-generated text that reflect emotional and psychological states over time. This project studies how emotions change across time windows and how frequent emotional transition patterns can be used to predict future emotional tendencies.
 
-The project includes text preprocessing, time-series segmentation, sequential pattern mining, emotion transition visualization, and Top-k emotion prediction.
+The original research used large-scale Reddit data from 2018 to 2022. Users were categorized into four cohorts:
+
+- Depressive users
+- Normal users
+- Recovering users
+- Deteriorating users
+
+For each user, the most active 15-day period was selected and divided into five consecutive 3-day windows. Emotional features were extracted from each window, and sequential pattern mining was applied to discover frequent emotional transition patterns.
+
+These patterns were then aggregated into a Pattern Intensity Set (PIS), which was used to predict future emotional states through interpretable pattern matching and scoring.
+
+---
 
 ## Technologies
 
 - Python
-- Pandas
+- pandas
 - NumPy
-- Scikit-learn
+- scikit-learn
 - Matplotlib
-- Sankey Diagram
+- Plotly
 - Sequential Pattern Mining
+- Pattern Intensity Set (PIS)
+- Top-k prediction
+- Sankey diagram visualization
+
+Original research also used:
+
+- Reddit data from Academic Torrents / Pushshift archive
+- Empath-based emotion feature extraction
+- Emoji normalization
+- Text preprocessing with NLTK
+
+---
 
 ## My Role
 
-- Collected and preprocessed Reddit user post data
-- Designed the 15-day time-window structure
-- Converted user posts into emotion sequences
-- Implemented sequential pattern mining
-- Calculated Support, Confidence, and Sequential Confidence
-- Built a ranking-based future emotion prediction method
-- Visualized emotional transition flows using Sankey diagrams
-- Evaluated prediction results with Top-1, Top-3, and Top-5 accuracy
+This was my master's research project. I was responsible for:
 
-## Key Features
-
-- Reddit post data preprocessing
-- 15-day user activity extraction
-- 3-day time-window segmentation
-- Emotion sequence construction
-- Sequential pattern mining
-- Future emotion Top-3 prediction
-- Sankey diagram visualization
-- Basic model evaluation
-
-## Workflow
-
-1. Collect Reddit post data
-2. Clean and filter user records
-3. Extract emotional features from post text
-4. Divide user activity into 3-day time windows
-5. Convert emotional changes into sequences
-6. Mine frequent emotional transition patterns
-7. Predict future emotional categories
-8. Visualize emotion flows with Sankey diagrams
-9. Evaluate prediction performance
-
-## Target Positions
-
-This project is especially relevant to the following roles:
-
-* Data Analyst
-* Python Developer
-* AI / Machine Learning Assistant
-* Research and Development Assistant
-* Data Visualization Engineer
-* NLP-related Assistant Engineer
+- Collecting and processing Reddit post data
+- Designing user cohort filtering logic
+- Selecting each user's most active 15-day period
+- Dividing user activity into five 3-day windows
+- Extracting emotional features from text
+- Constructing emotional sequences
+- Mining sequential emotional transition patterns
+- Designing a PIS-based prediction algorithm
+- Evaluating Top-1, Top-3, and Top-5 prediction accuracy
+- Visualizing emotional transition flows with Sankey diagrams
 
 ---
 
-## Background
+## Research Workflow
 
-Social media posts often reflect changes in users' emotional states over time.
-Instead of analyzing each post independently, this project focuses on **temporal emotional transitions**.
+The original research workflow consisted of the following stages:
 
-The main goal of this project is to analyze how users' emotions change across time windows and to explore whether future emotional tendencies can be predicted from previous emotional transition patterns.
+1. **Data Collection**
+   - Reddit posts from 2018 to 2022 were collected from archived `.zst` files.
 
-This project was developed as part of my master's research at Keio University and has been reorganized as a portfolio project for job applications.
+2. **User Cohort Identification**
+   - Users were categorized into depressive, normal, recovering, and deteriorating groups.
+
+3. **Data Filtering and Preprocessing**
+   - Deleted users and invalid posts were removed.
+   - Users with fewer than 15 active posting days were excluded.
+   - Text was cleaned and normalized.
+
+4. **Active Period Selection**
+   - For each user, the most active 15-day period was identified.
+
+5. **Window Segmentation**
+   - The 15-day period was divided into five consecutive 3-day windows.
+
+6. **Emotion Feature Extraction**
+   - Emotional features were extracted for each window.
+   - Each user was represented as a 5-step emotional sequence.
+
+7. **Sequential Pattern Mining**
+   - Frequent emotional transition patterns were mined.
+   - Support, confidence, sequential confidence, and count were calculated.
+
+8. **PIS Construction and Prediction**
+   - Mined patterns were aggregated into a Pattern Intensity Set.
+   - Recent emotional subsequences were matched against PIS patterns.
+   - Future emotional states were predicted using a scoring-based Top-k method.
 
 ---
 
-## Time-Series Segmentation
+## Key Concepts
 
-For each user, the most active 15-day posting period was selected.
-The 15-day period was divided into five 3-day windows.
+### 1. Five-Window Emotional Sequence
 
-| Window | Period    |
-| ------ | --------- |
-| W1     | Day 1–3   |
-| W2     | Day 4–6   |
-| W3     | Day 7–9   |
-| W4     | Day 10–12 |
-| W5     | Day 13–15 |
+Each user's most active 15-day period was divided into five windows:
 
-For each 3-day window, representative emotional categories were extracted from the user's posts.
+```text
+W1 -> W2 -> W3 -> W4 -> W5
+```
+
+Each window represents a 3-day period.
 
 Example:
 
 ```text
-W1 → W2 → W3 → W4 → W5
-Positive → Neutral → Negative → Negative → Positive
+friends -> work -> pain -> death -> healing
 ```
 
-This sequence represents the user's emotional transition pattern over time.
+### 2. Sequential Pattern
+
+A sequential pattern represents a common emotional transition path.
+
+Example:
+
+```text
+friends -> work -> pain -> death -> healing
+```
+
+### 3. Support
+
+Support measures how frequently a pattern appears among all sequences.
+
+```text
+Support(P) = Count(P) / Total number of sequences
+```
+
+### 4. Confidence
+
+Confidence measures how likely a pattern appears given the first emotion.
+
+```text
+Confidence(P) = Count(P) / Count(patterns starting with the same first emotion)
+```
+
+### 5. Sequential Confidence
+
+Sequential confidence measures how likely the final emotion follows a specific prefix sequence.
+
+```text
+Sequential Confidence(P) = Count(P) / Count(patterns with the same prefix)
+```
+
+### 6. Pattern Intensity Set (PIS)
+
+The Pattern Intensity Set stores mined emotional transition patterns together with their statistical metrics:
+
+- Sequential Pattern
+- Category Pattern
+- Support
+- Confidence
+- Sequential Confidence
+- Count
+
+The PIS is used as the basis for future emotion prediction.
 
 ---
 
-## Emotion Sequence Construction
+## Simplified Demo Design
 
-Each user's posts were converted into emotion sequences based on the extracted emotional categories.
+This repository provides a simplified and runnable version of the research workflow.
 
-Example sequence:
+The full research pipeline used large-scale Reddit data and Empath-based feature extraction. Since the original dataset is large and not suitable for public release, this repository uses small artificial sample data to demonstrate the core logic.
 
-```text
-[Positive, Neutral, Negative, Negative, Positive]
-```
-
-The project tested different levels of emotional category grouping, including:
-
-* 3-category scheme: Positive / Negative / Neutral
-* 5-category scheme
-* 8-category scheme
-* 12-category scheme
-
-This made it possible to compare prediction performance under different levels of emotional granularity.
-
----
-
-## Sequential Pattern Mining
-
-Sequential pattern mining was used to extract frequent emotional transition patterns from user-level emotion sequences.
-
-For each pattern, the following indicators were calculated.
-
-### Support
-
-Support measures how frequently a pattern appears in the entire dataset.
+The repository includes two simplified demos:
 
 ```text
-Support = Pattern Count / Total Sequence Count
+sample posts
+↓
+feature_extraction_demo.py
+↓
+window-level emotional features
 ```
 
-### Confidence
-
-Confidence measures how likely a transition pattern appears after its starting emotional category.
+and:
 
 ```text
-Confidence = Pattern Count / First Emotion Count
+sequential pattern data
+↓
+demo.py
+↓
+Top-k next emotion prediction
 ```
-
-### Sequential Confidence
-
-Sequential Confidence measures how likely the next emotion appears after a specific prefix sequence.
-
-```text
-Sequential Confidence = Pattern Count / Prefix Count
-```
-
-These indicators were used to evaluate the strength of emotional transition patterns.
-
----
-
-## Prediction Method
-
-The prediction task was designed to estimate the next emotional category based on previous emotional transitions.
-
-For example, given the following recent emotional sequence:
-
-```text
-[Positive, Neutral, Negative, Negative]
-```
-
-The model predicts possible next emotional categories as a ranking:
-
-```text
-Top 1: Negative
-Top 2: Neutral
-Top 3: Positive
-```
-
-The prediction score was calculated based on pattern frequency, confidence, sequence length, and transition distance.
-
-The final output was a ranked list of possible future emotional tendencies.
 
 ---
 
@@ -191,13 +211,50 @@ The final output was a ranked list of possible future emotional tendencies.
 
 The following figure shows the data collection, organization, and filtering process used in the original research.
 
-<img src="figures/data_pipeline.png" alt="Data Pipeline" width="30%">
+<img src="figures/data_pipeline.png" alt="Data Pipeline" width="50%">
 
 ### Prediction Workflow
 
 The following figure shows the prediction workflow based on the Pattern Intensity Set (PIS).
 
-<img src="figures/prediction_workflow.png" alt="Prediction Workflow" width="30%">
+<img src="figures/prediction_workflow.png" alt="Prediction Workflow" width="50%">
+
+---
+
+## Results and Evaluation
+
+The original research evaluated the prediction framework under four emotion classification schemes:
+
+- **Scheme 3**: coarse-grained classification with Positive / Negative / Neutral categories
+- **Scheme 5**: medium-grained classification
+- **Scheme 8**: fine-grained emotional classification
+- **Scheme 12**: more detailed emotional classification
+
+The evaluation used Top-1, Top-3, and Top-5 accuracy together with prediction coverage.
+
+Selected results are provided in:
+
+```text
+results/evaluation_summary.csv
+```
+
+### Key Findings
+
+- Scheme 3 achieved strong Top-1 accuracy with high coverage, showing that coarse-grained emotion prediction is stable and reliable.
+- Scheme 5, Scheme 8, and Scheme 12 provide more detailed emotional categories.
+- Finer-grained schemes may reduce Top-1 coverage, but they provide richer emotional interpretation.
+- The results show a trade-off between prediction accuracy, coverage, and emotional granularity.
+
+For example, under the setting `margin=20` and `min_top1=40`, the following results were observed:
+
+| Scheme | Top-1 Accuracy | Top-3 Accuracy | Top-5 Accuracy | Top-1 Coverage |
+|---|---:|---:|---:|---:|
+| Scheme 3 | 88.82% | — | — | 89.96% |
+| Scheme 5 | 89.67% | 99.31% | — | 62.31% |
+| Scheme 8 | 89.30% | 98.37% | 99.80% | 60.43% |
+| Scheme 12 | 92.67% | 96.38% | 99.14% | 53.77% |
+
+---
 
 ## Repository Structure
 
@@ -212,14 +269,26 @@ emotion-transition-analysis/
 │   ├── sample_posts.csv
 │   ├── sample_window_features.csv
 │   └── sample_patterns.csv
+├── figures/
+│   ├── data_pipeline.png
+│   └── prediction_workflow.png
 └── results/
     ├── extracted_window_features_demo.csv
     ├── demo_output.txt
     └── evaluation_summary.csv
+```
+
+---
 
 ## How to Run
 
 This repository provides two simplified demos based on the research workflow.
+
+### Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
 
 ### 1. Feature Extraction Demo
 
@@ -266,11 +335,30 @@ Top 1: healing | score = 0.3580
 Top 2: optimism | score = 0.1480
 ```
 
-### Install Dependencies
+---
 
-```bash
-pip install -r requirements.txt
-```
+## Sample Data
+
+### `sample_data/sample_posts.csv`
+
+Small artificial sample post data used to demonstrate the feature extraction workflow.
+
+### `sample_data/sample_window_features.csv`
+
+Example window-level emotional features. Each row represents one user and one 3-day window.
+
+### `sample_data/sample_patterns.csv`
+
+Example sequential pattern data containing:
+
+- Sequential Pattern
+- Category Pattern
+- Support
+- Confidence
+- Sequential Confidence
+- Count
+
+---
 
 ## Code and Data Availability
 
@@ -289,9 +377,22 @@ Instead, this repository provides simplified and reproducible demo files:
 
 The simplified demos are designed to show the core workflow and logic of the research in a compact, readable, and runnable form.
 
+---
+
+## Target Positions
+
+This project is relevant to positions such as:
+
+- Data Analyst
+- Python Developer
+- AI / Machine Learning Assistant Engineer
+- Research Assistant
+- Software Engineer with data analysis responsibilities
+
+---
 
 ## Notes
 
-The original Reddit dataset is not included due to data privacy and usage restrictions.
+This repository is intended for portfolio and job-hunting purposes.
 
-This repository provides a simplified portfolio version of the research project.
+The goal is to present the research workflow, implementation logic, and selected results in a clear and reproducible way, while avoiding the release of large-scale raw social media data.
