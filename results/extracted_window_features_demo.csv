@@ -1,0 +1,11 @@
+user_id,window,window_start_date,emotional_characteristics,first_emotion,category
+U001,W1,2021-03-01,"giving: 1.00, friends: 0.67, optimism: 0.33",giving,Positive
+U001,W2,2021-03-04,"work: 1.00, emotional: 0.50, nervousness: 0.50",work,Neutral
+U001,W3,2021-03-07,"pain: 1.00, sadness: 0.50, nervousness: 0.50, shame: 0.50",pain,Negative
+U001,W4,2021-03-10,"shame: 1.00, death: 1.00, violence: 1.00, dispute: 1.00",shame,Negative
+U001,W5,2021-03-13,"healing: 1.00, friends: 0.50, giving: 0.50, optimism: 0.50, love: 0.50",healing,Positive
+U002,W1,2021-04-02,"work: 1.00, emotional: 1.00",work,Neutral
+U002,W2,2021-04-05,"pain: 1.00, nervousness: 1.00, shame: 1.00",pain,Negative
+U002,W3,2021-04-08,"nervousness: 1.00, dispute: 1.00",nervousness,Negative
+U002,W4,2021-04-11,"friends: 1.00, giving: 1.00, optimism: 1.00, fun: 1.00",friends,Positive
+U002,W5,2021-04-14,"optimism: 1.00, healing: 0.50",optimism,Positive
