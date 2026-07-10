@@ -115,7 +115,7 @@ def mine_full_length_patterns(user_sequences):
 
 
 def main():
-    input_file = "results/extracted_window_features_demo.csv"
+    input_file = "results/extracted_window_features.csv"
     output_file = "results/generated_patterns_demo.csv"
 
     df = load_window_features(input_file)
