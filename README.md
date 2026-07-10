@@ -216,6 +216,7 @@ posts -> window features -> sequential patterns -> prediction
 ```
 
 ---
+The demo scripts are modular examples. They demonstrate the main stages of the research workflow with small sample files, but the sample files are simplified and are not intended to fully reproduce the original experimental pipeline end-to-end.
 
 ## Visualization
 
