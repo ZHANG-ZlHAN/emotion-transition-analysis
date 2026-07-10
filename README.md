@@ -237,27 +237,20 @@ Detailed evaluation results will be added in the `results/` directory.
 ## Repository Structure
 
 ```text
-emotion-transition-analysis
-│
+emotion-transition-analysis/
 ├── README.md
+├── requirements.txt
 ├── src/
+│   ├── feature_extraction_demo.py
 │   └── demo.py
-│
 ├── sample_data/
-│   └── sample_sequences.csv
-│
-├── figures/
-│   ├── workflow.png
-│   ├── sankey_diagram.png
-│   └── evaluation_result.png
-│
-├── results/
-│   └── evaluation_summary.csv
-│
-└── requirements.txt
-```
-
----
+│   ├── sample_posts.csv
+│   ├── sample_window_features.csv
+│   └── sample_patterns.csv
+└── results/
+    ├── extracted_window_features_demo.csv
+    ├── demo_output.txt
+    └── evaluation_summary.csv
 
 ## How to Run
 
