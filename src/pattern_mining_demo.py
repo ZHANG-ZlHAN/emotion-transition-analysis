@@ -115,7 +115,9 @@ def mine_full_length_patterns(user_sequences):
 
 
 def main():
-    input_file = "results/extracted_window_features.csv"
+    # This demo uses prepared window-level feature samples.
+    # The feature extraction demo output is provided separately as another modular example.
+    input_file = "sample_data/sample_window_features.csv"
     output_file = "results/generated_patterns_demo.csv"
 
     df = load_window_features(input_file)
