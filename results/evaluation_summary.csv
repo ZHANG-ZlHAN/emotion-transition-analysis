@@ -1,0 +1,3 @@
+setting,top1_accuracy,top3_accuracy,top5_accuracy,coverage,notes
+Simplified demo,N/A,N/A,N/A,N/A,This demo shows the prediction workflow using sample pattern data.
+Research experiment example,85.94%,100.00%,100.00%,89.02%,One strict experimental setting using sequence-based prediction.
