@@ -189,33 +189,15 @@ The final output was a ranked list of possible future emotional tendencies.
 
 ### Data Pipeline
 
-![Data Pipeline](figures/data_pipeline.png)
+The following figure shows the data collection, organization, and filtering process used in the original research.
+
+<img src="figures/data_pipeline.png" alt="Data Pipeline" width="50%">
 
 ### Prediction Workflow
 
-![Prediction Workflow](figures/prediction_workflow.png)
+The following figure shows the prediction workflow based on the Pattern Intensity Set (PIS).
 
-## Results and Evaluation
-
-The project produced the following results:
-
-* Constructed user-level emotional transition sequences from Reddit post data
-* Extracted frequent emotional transition patterns using sequential pattern mining
-* Visualized emotional transition flows using Sankey diagrams
-* Built a ranking-based future emotion prediction prototype
-* Evaluated prediction performance using Top-1, Top-3, and Top-5 accuracy
-
-The evaluation was conducted using Top-k accuracy.
-
-| Metric         | Result      |
-| -------------- | ----------- |
-| Top-1 Accuracy | To be added |
-| Top-3 Accuracy | To be added |
-| Top-5 Accuracy | To be added |
-
-Detailed evaluation results will be added in the `results/` directory.
-
----
+<img src="figures/prediction_workflow.png" alt="Prediction Workflow" width="50%">
 
 ## Repository Structure
 
