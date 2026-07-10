@@ -183,7 +183,7 @@ This repository provides a simplified and runnable version of the research workf
 
 The full research pipeline used large-scale Reddit data and Empath-based feature extraction. Since the original dataset is large and not suitable for public release, this repository uses small artificial sample data to demonstrate the core logic.
 
-The repository includes two simplified demos:
+The repository includes three simplified demos:
 
 ```text
 sample posts
@@ -193,7 +193,13 @@ feature_extraction_demo.py
 window-level emotional features
 ```
 
-and:
+```text
+window-level emotional features
+↓
+pattern_mining_demo.py
+↓
+sequential patterns
+```
 
 ```text
 sequential pattern data
@@ -201,6 +207,12 @@ sequential pattern data
 demo.py
 ↓
 Top-k next emotion prediction
+```
+
+Together, these demos cover the main logic of the research workflow:
+
+```text
+posts -> window features -> sequential patterns -> prediction
 ```
 
 ---
@@ -382,6 +394,32 @@ Example sequential pattern data containing:
 
 ---
 
+## Demo Outputs
+
+### `results/extracted_window_features_demo.csv`
+
+Actual output from running `src/feature_extraction_demo.py`.
+
+This file demonstrates how sample post data is converted into five 3-day window-level emotional features.
+
+### `results/generated_patterns_demo.csv`
+
+Actual output from running `src/pattern_mining_demo.py`.
+
+This file demonstrates how window-level emotional features are converted into full five-window sequential patterns with support, confidence, sequential confidence, and count.
+
+### `results/demo_output.txt`
+
+Actual output from running `src/demo.py`.
+
+This file demonstrates the simplified Top-k next emotion prediction result.
+
+### `results/evaluation_summary.csv`
+
+Selected evaluation results from the original research experiment.
+
+---
+
 ## Code and Data Availability
 
 This repository is a portfolio version of my master's research project.
@@ -393,6 +431,7 @@ Due to data size, privacy considerations, and dataset usage restrictions, the or
 Instead, this repository provides simplified and reproducible demo files:
 
 - `src/feature_extraction_demo.py` demonstrates how sample posts are converted into five 3-day window-level emotional features.
+- `src/pattern_mining_demo.py` demonstrates how window-level emotional features are converted into sequential patterns with support, confidence, sequential confidence, and count.
 - `src/demo.py` demonstrates how prepared sequential pattern data can be used for Top-k next emotion prediction.
 - `sample_data/` contains small artificial sample data for demonstration.
 - `results/` contains actual outputs from the demo scripts and selected evaluation results from the original research.
