@@ -10,11 +10,13 @@ The project analyzes emotional transitions in Reddit user posts and predicts fut
 
 ## 日本語概要
 
-本プロジェクトは、修士研究「SNS上における感情遷移の分析と予測」をポートフォリオ向けに整理したものです。
+本リポジトリは、修士研究「SNS上における感情遷移の分析と予測」をポートフォリオ向けに整理したものです。
 
-Reddit の投稿データを用いて、ユーザーの感情状態を時系列で分析し、Sequential Pattern Mining と Pattern Intensity Set (PIS) に基づく手法により、将来の感情カテゴリを予測します。
+Reddit の投稿データを用いて、ユーザーの感情状態を時系列的に分析し、Sequential Pattern Mining と Pattern Intensity Set (PIS) に基づく手法により、将来の感情カテゴリを予測します。
 
-本リポジトリでは、元研究の全データ処理パイプラインを完全公開するのではなく、研究の主要な流れを理解できるように、サンプルデータと簡略化したデモコードを提供しています。
+元研究では、2018年から2022年までの大規模 Reddit データを利用し、ユーザーを depressive / normal / recovering / deteriorating の4グループに分類しました。その後、各ユーザーの最も投稿が活発な15日間を抽出し、5つの3日間ウィンドウに分割して感情特徴を取得しました。さらに、感情遷移パターンを抽出し、Support、Confidence、Sequential Confidence などの指標を用いて分析しました。
+
+本リポジトリでは、元データのサイズや利用制限、プライバシー上の理由から、完全な実験用データセットは公開していません。その代わりに、サンプルデータと簡略化したデモコードを用いて、研究の主要な処理流れを再現できるようにしています。
 
 ---
 
@@ -217,6 +219,7 @@ posts -> window features -> sequential patterns -> prediction
 
 The demo scripts are modular examples. They demonstrate the main stages of the research workflow with small sample files, but the sample files are simplified and are not intended to fully reproduce the original experimental pipeline end-to-end.
 
+---
 
 ## Visualization
 
@@ -224,13 +227,13 @@ The demo scripts are modular examples. They demonstrate the main stages of the r
 
 The following figure shows the data collection, organization, and filtering process used in the original research.
 
-<img src="figures/data_pipeline.png" alt="Data Pipeline" width="50%">
+<img src="figures/data_pipeline.png" alt="Data Pipeline" width="30%">
 
 ### Prediction Workflow
 
 The following figure shows the prediction workflow based on the Pattern Intensity Set (PIS).
 
-<img src="figures/prediction_workflow.png" alt="Prediction Workflow" width="50%">
+<img src="figures/prediction_workflow.png" alt="Prediction Workflow" width="30%">
 
 ---
 
