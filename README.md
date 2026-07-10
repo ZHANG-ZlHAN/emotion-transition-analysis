@@ -309,16 +309,20 @@ pip install -r requirements.txt
 
 ## Code and Data Availability
 
-The original Reddit dataset is not included due to data privacy and usage restrictions.
+This repository is a portfolio version of my master's research project.
 
-This portfolio version will include:
+The full research project used large-scale Reddit data from 2018 to 2022 and included Reddit data extraction, text preprocessing, user cohort filtering, most-active 15-day period selection, 3-day window segmentation, Empath-based emotion feature extraction, sequential pattern mining, PIS construction, and Top-k emotion prediction.
 
-* Sample emotional sequence data
-* Simplified demo code
-* Selected figures and evaluation results
-* Documentation of the analysis pipeline
+Due to data size, privacy considerations, and dataset usage restrictions, the original Reddit dataset and full experimental pipeline are not included in this repository.
 
-The purpose of this repository is to demonstrate the research process, implementation logic, and data analysis workflow.
+Instead, this repository provides simplified and reproducible demo files:
+
+- `src/feature_extraction_demo.py` demonstrates how sample posts are converted into five 3-day window-level emotional features.
+- `src/demo.py` demonstrates how prepared sequential pattern data can be used for Top-k next emotion prediction.
+- `sample_data/` contains small artificial sample data for demonstration.
+- `results/` contains actual outputs from the demo scripts and selected evaluation results from the original research.
+
+The simplified demos are designed to show the core workflow and logic of the research in a compact, readable, and runnable form.
 
 
 ## Notes
