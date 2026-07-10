@@ -191,13 +191,13 @@ The final output was a ranked list of possible future emotional tendencies.
 
 The following figure shows the data collection, organization, and filtering process used in the original research.
 
-<img src="figures/data_pipeline.png" alt="Data Pipeline" width="50%">
+<img src="figures/data_pipeline.png" alt="Data Pipeline" width="30%">
 
 ### Prediction Workflow
 
 The following figure shows the prediction workflow based on the Pattern Intensity Set (PIS).
 
-<img src="figures/prediction_workflow.png" alt="Prediction Workflow" width="50%">
+<img src="figures/prediction_workflow.png" alt="Prediction Workflow" width="30%">
 
 ## Repository Structure
 
