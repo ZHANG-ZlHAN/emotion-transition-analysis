@@ -187,30 +187,13 @@ The final output was a ranked list of possible future emotional tendencies.
 
 ## Visualization
 
-Sankey diagrams were used to visualize emotional transitions across time windows.
+### Data Pipeline
 
-The Sankey diagram shows how users' emotional categories flow from one time window to the next.
+![Data Pipeline](figures/data_pipeline.png)
 
-Example:
+### Prediction Workflow
 
-```text
-W1 → W2 → W3 → W4 → W5
-```
-
-Planned figures:
-
-```text
-figures/
-├── workflow.png
-├── sankey_diagram.png
-└── evaluation_result.png
-```
-
-* `workflow.png`: Overall analysis pipeline
-* `sankey_diagram.png`: Emotion transition visualization
-* `evaluation_result.png`: Top-k prediction evaluation result
-
----
+![Prediction Workflow](figures/prediction_workflow.png)
 
 ## Results and Evaluation
 
