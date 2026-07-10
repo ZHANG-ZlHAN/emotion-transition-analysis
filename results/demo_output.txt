@@ -1,0 +1,6 @@
+Current emotion sequence:
+friends -> work -> pain -> death
+
+Predicted next emotions:
+Top 1: healing | score = 0.3580
+Top 2: optimism | score = 0.1480
