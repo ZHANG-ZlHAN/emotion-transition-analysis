@@ -1,0 +1,16 @@
+user_id,window,window_start_date,emotional_characteristics,first_emotion,category
+U001,W1,2021-03-01,"friends: 1.00, optimism: 0.72, giving: 0.51, fun: 0.38, love: 0.25",friends,Positive
+U001,W2,2021-03-04,"work: 1.00, emotional: 0.64, nervousness: 0.42, alcohol: 0.20",work,Neutral
+U001,W3,2021-03-07,"pain: 1.00, sadness: 0.81, nervousness: 0.63, shame: 0.44",pain,Negative
+U001,W4,2021-03-10,"death: 1.00, violence: 0.77, shame: 0.49, dispute: 0.33",death,Negative
+U001,W5,2021-03-13,"healing: 1.00, optimism: 0.84, love: 0.53, friends: 0.41",healing,Positive
+U002,W1,2021-04-02,"work: 1.00, emotional: 0.59, alcohol: 0.31, leisure: 0.28",work,Neutral
+U002,W2,2021-04-05,"pain: 1.00, shame: 0.76, nervousness: 0.64, injury: 0.43",pain,Negative
+U002,W3,2021-04-08,"nervousness: 1.00, dispute: 0.66, shame: 0.52, violence: 0.35",nervousness,Negative
+U002,W4,2021-04-11,"friends: 1.00, giving: 0.78, fun: 0.45, optimism: 0.36",friends,Positive
+U002,W5,2021-04-14,"optimism: 1.00, healing: 0.83, love: 0.50, leisure: 0.29",optimism,Positive
+U003,W1,2021-05-01,"love: 1.00, friends: 0.80, fun: 0.62, wedding: 0.34",love,Positive
+U003,W2,2021-05-04,"leisure: 1.00, fun: 0.74, optimism: 0.57, friends: 0.40",leisure,Positive
+U003,W3,2021-05-07,"emotional: 1.00, work: 0.68, alcohol: 0.40, hesitant: 0.22",emotional,Neutral
+U003,W4,2021-05-10,"injury: 1.00, pain: 0.79, shame: 0.51, nervousness: 0.38",injury,Negative
+U003,W5,2021-05-13,"work: 1.00, emotional: 0.61, alcohol: 0.33, leisure: 0.24",work,Neutral
