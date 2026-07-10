@@ -261,16 +261,58 @@ emotion-transition-analysis
 
 ## How to Run
 
-This repository provides a simplified demo version for portfolio purposes.
+This repository provides two simplified demos based on the research workflow.
+
+### 1. Feature Extraction Demo
+
+This demo shows how sample posts are divided into five 3-day windows and converted into window-level emotional features.
 
 ```bash
-pip install -r requirements.txt
+python src/feature_extraction_demo.py
+```
+
+Input:
+
+```text
+sample_data/sample_posts.csv
+```
+
+Output:
+
+```text
+results/extracted_window_features_demo.csv
+```
+
+### 2. Prediction Demo
+
+This demo predicts the next emotional state from a prepared sequential pattern table.
+
+```bash
 python src/demo.py
 ```
 
-The demo script uses sample emotional sequences and outputs predicted future emotional categories.
+Input:
 
----
+```text
+sample_data/sample_patterns.csv
+```
+
+Example output:
+
+```text
+Current emotion sequence:
+friends -> work -> pain -> death
+
+Predicted next emotions:
+Top 1: healing | score = 0.3580
+Top 2: optimism | score = 0.1480
+```
+
+### Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
 
 ## Code and Data Availability
 
