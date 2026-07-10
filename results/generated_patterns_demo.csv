@@ -1,0 +1,4 @@
+Sequential Pattern,Category Pattern,Support,Confidence,Sequential Confidence,Count
+friends -> work -> pain -> death -> healing,Positive -> Neutral -> Negative -> Negative -> Positive,0.3333,1.0,1.0,1
+work -> pain -> nervousness -> friends -> optimism,Neutral -> Negative -> Negative -> Positive -> Positive,0.3333,1.0,1.0,1
+love -> leisure -> emotional -> injury -> work,Positive -> Positive -> Neutral -> Negative -> Neutral,0.3333,1.0,1.0,1
