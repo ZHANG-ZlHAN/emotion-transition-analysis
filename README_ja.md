@@ -282,13 +282,13 @@ demo.py
 元の研究におけるデータ収集、整理、
 フィルタリング処理を示します。
 
-![Data Pipeline](figures/data_pipeline.png)
+<img src="figures/data_pipeline.png" alt="Data Pipeline" width="30%">
 
 ### 予測ワークフロー
 
 Pattern Intensity Setに基づく予測処理を示します。
 
-![Prediction Workflow](figures/prediction_workflow.png)
+<img src="figures/prediction_workflow.png" alt="Data Pipeline" width="30%">
 
 ---
 
