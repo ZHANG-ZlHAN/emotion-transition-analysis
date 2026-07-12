@@ -8,17 +8,8 @@ The project analyzes emotional transitions in Reddit user posts and predicts fut
 
 ---
 
-## 日本語概要
 
-本リポジトリは、修士研究「SNS上における感情遷移の分析と予測」をポートフォリオ向けに整理したものです。
-
-Reddit の投稿データを用いて、ユーザーの感情状態を時系列的に分析し、Sequential Pattern Mining と Pattern Intensity Set (PIS) に基づく手法により、将来の感情カテゴリを予測します。
-
-元研究では、2018年から2022年までの大規模 Reddit データを利用し、ユーザーを depressive / normal / recovering / deteriorating の4グループに分類しました。その後、各ユーザーの最も投稿が活発な15日間を抽出し、5つの3日間ウィンドウに分割して感情特徴を取得しました。さらに、感情遷移パターンを抽出し、Support、Confidence、Sequential Confidence などの指標を用いて分析しました。
-
-本リポジトリでは、元データのサイズや利用制限、プライバシー上の理由から、完全な実験用データセットは公開していません。その代わりに、サンプルデータと簡略化したデモコードを用いて、研究の主要な処理流れを再現できるようにしています。
-
----
+[日本語版 README](README_ja.md)
 
 ## Overview
 
